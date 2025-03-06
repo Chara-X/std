@@ -7,4 +7,6 @@
 #![allow(private_bounds)]
 #![forbid(unsafe_code)]
 //! [std]
+pub mod future;
+pub mod pin;
 pub mod task;
