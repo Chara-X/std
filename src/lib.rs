@@ -6,6 +6,7 @@
 #![allow(clippy::missing_safety_doc)]
 #![allow(clippy::module_inception)]
 #![allow(private_bounds)]
+#![allow(clippy::should_implement_trait)]
 //! [std]
 pub mod borrow;
 pub mod cell;
