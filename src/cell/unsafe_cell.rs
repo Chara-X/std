@@ -1,4 +1,3 @@
-#![allow(unsafe_code)]
 /// [std::cell::UnsafeCell]
 pub struct UnsafeCell<T>
 where
@@ -25,4 +24,5 @@ where
         self as *const UnsafeCell<T> as *const T as *mut T
     }
 }
+/* ! */
 unsafe impl<T> Sync for UnsafeCell<T> where T: ?Sized {}

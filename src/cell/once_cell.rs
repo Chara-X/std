@@ -1,4 +1,3 @@
-#![allow(unsafe_code)]
 use super::*;
 /// [std::cell::OnceCell]
 pub struct OnceCell<T> {

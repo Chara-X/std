@@ -1,5 +1,6 @@
 #![deny(missing_docs)]
 #![deny(unsafe_code)]
+#![allow(unsafe_code)]
 #![allow(unused_variables)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::len_without_is_empty)]

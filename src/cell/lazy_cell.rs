@@ -1,4 +1,3 @@
-#![allow(unsafe_code)]
 use super::*;
 use std::ops;
 /// [std::cell::LazyCell]
