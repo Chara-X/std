@@ -24,5 +24,4 @@ where
         self as *const UnsafeCell<T> as *const T as *mut T
     }
 }
-/* ! */
-unsafe impl<T> Sync for UnsafeCell<T> where T: ?Sized {}
+unsafe impl<T> Send for UnsafeCell<T> where T: ?Sized {}
