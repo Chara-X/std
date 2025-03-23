@@ -10,13 +10,20 @@
 #![allow(clippy::should_implement_trait)]
 //! [std]
 pub mod borrow;
+pub mod boxed;
 pub mod cell;
 pub mod clone;
 pub mod cmp;
 pub mod convert;
 pub mod default;
+pub mod error;
 pub mod future;
+pub mod iter;
+pub mod marker;
+pub mod ops;
 pub mod option;
 pub mod pin;
+pub mod ptr;
+pub mod rc;
 pub mod result;
 pub mod task;
