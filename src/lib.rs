@@ -9,6 +9,7 @@
 #![allow(private_bounds)]
 #![allow(clippy::should_implement_trait)]
 //! [std]
+pub mod array;
 pub mod borrow;
 pub mod boxed;
 pub mod cell;
@@ -26,4 +27,5 @@ pub mod pin;
 pub mod ptr;
 pub mod rc;
 pub mod result;
+pub mod slice;
 pub mod task;
