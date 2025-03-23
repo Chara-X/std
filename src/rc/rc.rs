@@ -1,4 +1,4 @@
-use std::{alloc, cell, ops, pin, ptr};
+use std::{alloc, cell, mem, ops, pin, ptr};
 /// [std::rc::Rc]
 pub struct Rc<T: ?Sized> {
     counter: ptr::NonNull<Counter>,
@@ -23,7 +23,27 @@ impl<T> Rc<T> {
     /// [std::rc::Rc::into_inner]
     pub fn into_inner(this: Rc<T>) -> Option<T> {
         if Rc::strong_count(&this) == 1 {
-            Some(unsafe { ptr::read(this.value.as_ptr()) })
+            let this = mem::ManuallyDrop::new(this);
+            unsafe { this.counter.as_ref() }
+                .strong
+                .set(unsafe { this.counter.as_ref() }.strong.get() - 1);
+            let val = unsafe { ptr::read(this.value.as_ptr()) };
+            if unsafe { this.counter.as_ref() }.weak.get() == 0 {
+                unsafe {
+                    ptr::drop_in_place(this.counter.as_ptr());
+                    alloc::dealloc(
+                        this.counter.as_ptr().cast(),
+                        alloc::Layout::for_value(this.counter.as_ref()),
+                    );
+                }
+            }
+            unsafe {
+                alloc::dealloc(
+                    this.value.as_ptr().cast(),
+                    alloc::Layout::for_value(this.value.as_ref()),
+                );
+            }
+            Some(val)
         } else {
             None
         }
