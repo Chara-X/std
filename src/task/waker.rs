@@ -22,3 +22,10 @@ where
         Waker { waker: value }
     }
 }
+impl Clone for Waker {
+    fn clone(&self) -> Self {
+        Self {
+            waker: self.waker.clone(),
+        }
+    }
+}
