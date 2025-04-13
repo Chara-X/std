@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::repeat]
 pub fn repeat<T: Clone>(elt: T) -> Repeat<T> {
     Repeat { element: elt }

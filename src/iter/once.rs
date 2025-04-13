@@ -1,3 +1,4 @@
+use super::*;
 use std::option;
 /// [std::iter::once]
 pub fn once<T>(value: T) -> Once<T> {

@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::Extend]
 pub trait Extend<A> {
     /// [std::iter::Extend::extend]

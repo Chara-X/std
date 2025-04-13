@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::IntoIterator]
 pub trait IntoIterator {
     /// [std::iter::IntoIterator::Item]

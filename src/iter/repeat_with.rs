@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::repeat_with]
 pub fn repeat_with<A, F>(repeater: F) -> RepeatWith<F>
 where

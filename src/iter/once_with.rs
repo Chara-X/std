@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::once_with]
 pub fn once_with<A, F>(r#gen: F) -> OnceWith<F>
 where

@@ -1,3 +1,4 @@
+use super::*;
 /// [std::iter::from_fn]
 pub fn from_fn<T, F>(f: F) -> FromFn<F>
 where
